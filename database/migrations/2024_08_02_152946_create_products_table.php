@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('is_available');
             $table->softDeletes();
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('category_id')->constrained()->restrictOnUpdate()->restrictOnDelete();
             $table->timestamps();
         });
     }
