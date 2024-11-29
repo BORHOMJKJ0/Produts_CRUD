@@ -28,7 +28,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'message' => 'Category created',
-            'status' => 200,
+            'status' => 201,
             'data' => CategoryResource::make($category),
         ]);
     }
@@ -49,8 +49,7 @@ class CategoryController extends Controller
         if($category->products()->count()) {
             return response()->json([
                 'message' => 'Category cannot delete',
-                'status' => 200,
-                'data' => CategoryResource::make($category),
+                'status' => 403,
             ]);
         }
         else
@@ -58,7 +57,6 @@ class CategoryController extends Controller
         return response()->json([
             'message' => 'Category deleted',
             'status' => 200,
-            'data' => CategoryResource::make($category),
         ]);
     }}
 }
